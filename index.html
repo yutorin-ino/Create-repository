@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="すまいPLUS｜賃貸の初期費用を抑えるノウハウを無料でお伝えする情報提供サービス。仲介・斡旋は行いません。">
+  <title>すまいPLUS｜賃貸の初期費用0円入居の知識を無料でお伝え</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-main: #FF6B35;
+      --color-sub: #27AE60;
+      --color-bg: #FFFAF7;
+      --color-text: #1A202C;
+      --color-gray: #718096;
+      --color-cta: #06C755;
+      --color-white: #ffffff;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(255, 107, 53, 0.12);
+      --max-width: 1200px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── Header ── */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 250, 247, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-sumai {
+      color: var(--color-main);
+    }
+
+    .logo-plus {
+      color: var(--color-sub);
+    }
+
+    .btn-line {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--color-cta);
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(6, 199, 85, 0.35);
+      white-space: nowrap;
+    }
+
+    .btn-line:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(6, 199, 85, 0.45);
+    }
+
+    .btn-line-lg {
+      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(160deg, #1A202C 0%, #2D3748 50%, #1e3a2f 100%);
+      color: var(--color-white);
+      padding: 48px 0 56px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 107, 53, 0.2);
+      border: 1px solid rgba(255, 107, 53, 0.4);
+      color: #ffb899;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.75rem, 6vw, 2.75rem);
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+
+    .hero-zero {
+      display: block;
+      font-size: clamp(3.5rem, 18vw, 7rem);
+      font-weight: 900;
+      color: var(--color-main);
+      line-height: 1;
+      margin: 8px 0;
+      text-shadow: 0 4px 24px rgba(255, 107, 53, 0.4);
+    }
+
+    .hero-lead {
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 520px;
+      margin: 0 auto 16px;
+      line-height: 1.8;
+    }
+
+    .hero-disclaimer {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 28px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 16px;
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 20px;
+    }
+
+    /* ── Section common ── */
+    .section {
+      padding: 56px 0;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-main);
+      background: rgba(255, 107, 53, 0.1);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.375rem, 4vw, 1.75rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .section-lead {
+      color: var(--color-gray);
+      font-size: 0.9375rem;
+      margin-bottom: 32px;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    /* ── Why section ── */
+    .why {
+      background: var(--color-white);
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .reason-card {
+      background: var(--color-bg);
+      border-radius: var(--radius);
+      padding: 20px 20px 20px 24px;
+      border-left: 4px solid var(--color-main);
+      box-shadow: var(--shadow);
+    }
+
+    .reason-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .reason-card p {
+      font-size: 0.875rem;
+      color: var(--color-gray);
+      line-height: 1.7;
+    }
+
+    /* ── Cost section ── */
+    .cost {
+      background: var(--color-white);
+    }
+
+    .cost-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .cost-table thead th {
+      background: var(--color-text);
+      color: var(--color-white);
+      padding: 14px 16px;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .cost-table tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      background: var(--color-bg);
+    }
+
+    .cost-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cost-table .total-row td {
+      background: rgba(255, 107, 53, 0.12);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--color-main);
+    }
+
+    .cost-arrow {
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--color-gray);
+      margin-bottom: 24px;
+    }
+
+    .impact-card {
+      background: linear-gradient(160deg, #1A202C 0%, #2D3748 100%);
+      border-radius: var(--radius);
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--color-white);
+      box-shadow: var(--shadow);
+    }
+
+    .impact-badge {
+      display: inline-block;
+      background: var(--color-main);
+      color: var(--color-white);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .impact-zero {
+      font-size: clamp(4rem, 20vw, 8rem);
+      font-weight: 900;
+      color: var(--color-main);
+      line-height: 1;
+      text-shadow: 0 4px 32px rgba(255, 107, 53, 0.5);
+    }
+
+    .impact-text {
+      font-size: clamp(1.125rem, 3vw, 1.5rem);
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .impact-disclaimer {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Hints section ── */
+    .hints {
+      background: var(--color-bg);
+    }
+
+    .hint-cards {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .hint-card {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .hint-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--color-main);
+      color: var(--color-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.125rem;
+    }
+
+    .hint-card h3 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .hint-card p {
+      font-size: 0.875rem;
+      color: var(--color-gray);
+      line-height: 1.7;
+    }
+
+    .hint-card.incomplete p:last-child {
+      color: var(--color-text);
+      font-style: italic;
+    }
+
+    .lockbox {
+      background: linear-gradient(160deg, #1A202C 0%, #2D3748 100%);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--color-white);
+      box-shadow: var(--shadow);
+    }
+
+    .lockbox-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .lockbox p {
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ── Flow section ── */
+    .flow {
+      background: rgba(39, 174, 96, 0.08);
+    }
+
+    .timeline {
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--color-sub);
+      opacity: 0.4;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 32px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -40px;
+      top: 4px;
+      width: 32px;
+      height: 32px;
+      background: var(--color-sub);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+    }
+
+    .timeline-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item p {
+      font-size: 0.875rem;
+      color: var(--color-gray);
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      background: var(--color-white);
+    }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--color-bg);
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 48px 18px 20px;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      position: relative;
+      user-select: none;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--color-main);
+      transition: transform 0.2s;
+    }
+
+    .faq-item[open] summary::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 0 20px 18px;
+      font-size: 0.875rem;
+      color: var(--color-gray);
+      line-height: 1.8;
+    }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      background: linear-gradient(135deg, #FF6B35 0%, #ff8c5a 50%, #FF6B35 100%);
+      color: var(--color-white);
+      text-align: center;
+      padding: 56px 0;
+    }
+
+    .final-cta .section-title {
+      color: var(--color-white);
+      margin-bottom: 8px;
+    }
+
+    .final-cta .section-lead {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 28px;
+    }
+
+    .final-trust {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 16px;
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 20px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--color-text);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+
+    .footer .logo {
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .footer .logo-sumai {
+      color: var(--color-main);
+    }
+
+    .footer .logo-plus {
+      color: var(--color-sub);
+    }
+
+    .footer-legal {
+      font-size: 0.75rem;
+      line-height: 1.8;
+      max-width: 560px;
+      margin: 0 auto 20px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ── Floating button ── */
+    .float-line {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-cta);
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 14px 20px;
+      border-radius: 999px;
+      box-shadow: 0 4px 20px rgba(6, 199, 85, 0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .float-line:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(6, 199, 85, 0.6);
+    }
+
+    .float-line-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 640px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hint-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 64px 0 72px;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .hint-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .hint-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .header-inner {
+        height: 72px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-cta-text {
+        display: none;
+      }
+
+      .btn-line-header {
+        padding: 10px 14px;
+        font-size: 1.125rem;
+      }
+
+      .float-line-text {
+        display: none;
+      }
+
+      .float-line {
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="すまいPLUS トップ">
+        <span class="logo-sumai">すまい</span><span class="logo-plus">PLUS</span>
+      </a>
+      <a href="https://line.me/ti/p/@012bbuuk" class="btn-line btn-line-header" target="_blank" rel="noopener noreferrer">
+        <span aria-hidden="true">📩</span>
+        <span class="header-cta-text">LINE無料相談</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Hero -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero-badge">🏠 知らないと絶対損する賃貸の話</p>
+        <h1 class="hero-title">
+          賃貸って<br>
+          初期費用<span class="hero-zero">0</span>円で<br>
+          入れるって知ってた？
+        </h1>
+        <p class="hero-lead">
+          敷金・礼金・仲介手数料が全部0円になる案件が存在します。でも、その探し方を知っている人はごくわずか。
+        </p>
+        <p class="hero-disclaimer">※ すまいPLUSは情報提供サービスです。仲介・斡旋は行いません。</p>
+        <a href="https://line.me/ti/p/@012bbuuk" class="btn-line btn-line-lg" target="_blank" rel="noopener noreferrer">
+          秘密を知りたい方はこちら
+        </a>
+        <div class="hero-trust">
+          <span>✅ 情報提供のみ・完全無料</span>
+          <span>✅ 仲介なし</span>
+          <span>✅ 今すぐ確認OK</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Why 0 yen -->
+    <section class="section why">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">❓ なぜそんなことが起きるの？</span>
+          <h2 class="section-title">「0円入居」が存在する理由</h2>
+        </div>
+        <div class="card-grid">
+          <article class="reason-card">
+            <h3>🏢 オーナーが空室を早く埋めたいとき</h3>
+            <p>初期費用を全額負担するケースがある</p>
+          </article>
+          <article class="reason-card">
+            <h3>📅 繁忙期を外した時期に動くと</h3>
+            <p>礼金・敷金0の物件が大幅に増える</p>
+          </article>
+          <article class="reason-card">
+            <h3>🔍 「フリーレント」物件は家賃0円期間つき</h3>
+            <p>知って探すかどうかで結果が変わる</p>
+          </article>
+          <article class="reason-card">
+            <h3>💬 交渉のタイミングと言い方さえ知っていれば</h3>
+            <p>後から0円近くできることもある</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Cost comparison -->
+    <section class="section cost">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">💸 これが現実</span>
+          <h2 class="section-title">賃貸の初期費用、実はこんなに高い</h2>
+          <p class="section-lead">家賃7万円の物件を借りる場合の一般的な初期費用の目安です</p>
+        </div>
+
+        <div class="cost-table-wrap">
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th>費用項目</th>
+                <th>一般的な相場</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>🏠 敷金</td>
+                <td>約7万円（家賃1ヶ月分）</td>
+              </tr>
+              <tr>
+                <td>🎁 礼金</td>
+                <td>約7万円（家賃1ヶ月分）</td>
+              </tr>
+              <tr>
+                <td>🤝 仲介手数料</td>
+                <td>約7.7万円（家賃1ヶ月+税）</td>
+              </tr>
+              <tr>
+                <td>📅 前家賃</td>
+                <td>約7万円（1ヶ月分）</td>
+              </tr>
+              <tr>
+                <td>🔥 火災保険</td>
+                <td>約2万円</td>
+              </tr>
+              <tr>
+                <td>🛡 保証会社</td>
+                <td>約3.5万円（家賃0.5ヶ月分）</td>
+              </tr>
+              <tr class="total-row">
+                <td>合計</td>
+                <td>約34万円</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="cost-arrow">⬇️ これが…条件次第で</p>
+
+        <div class="impact-card">
+          <span class="impact-badge">最大</span>
+          <div class="impact-zero">0円</div>
+          <p class="impact-text">になる案件が存在します</p>
+          <p class="impact-disclaimer">※ 物件・時期・条件によって異なります。すべての物件が0円になるわけではありません。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Hints -->
+    <section class="section hints">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">💡 一部だけ公開します</span>
+          <h2 class="section-title">「0円入居」を実現する3つのヒント</h2>
+          <p class="section-lead">全部は教えられませんが、入り口だけお見せします</p>
+        </div>
+
+        <div class="hint-cards">
+          <article class="hint-card">
+            <span class="hint-num">1</span>
+            <div>
+              <h3>「フリーレント」という言葉を知っているか</h3>
+              <p>家賃無料期間がついた物件のことを指します。入居後1〜2ヶ月は家賃0円になるケースがあり、実質的な初期費用を大きく下げられます。</p>
+            </div>
+          </article>
+          <article class="hint-card">
+            <span class="hint-num">2</span>
+            <div>
+              <h3>「礼金0・敷金0」物件の見つけ方がある</h3>
+              <p>一般的なポータルサイトだけでは見えにくい案件も存在します。探し方のノウハウを知っているかどうかで、出会える物件が大きく変わります。</p>
+            </div>
+          </article>
+          <article class="hint-card incomplete">
+            <span class="hint-num">3</span>
+            <div>
+              <h3>「初期費用ゼロ」を実現するもう1つのルートとは…</h3>
+              <p>実は、フリーレントや礼金0・敷金0以外にも、知っている人だけが使える方法が……</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="lockbox">
+          <div class="lockbox-icon" aria-hidden="true">🔒</div>
+          <p>残りの情報・具体的な案件の探し方・あなたの状況に合った方法はLINEでお伝えしています</p>
+          <a href="https://line.me/ti/p/@012bbuuk" class="btn-line btn-line-lg" target="_blank" rel="noopener noreferrer">
+            続きを知りたい → LINEで教えてもらう
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Flow -->
+    <section class="section flow">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">たった3ステップで情報が届く</h2>
+        </div>
+        <ol class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true">👆</span>
+            <h3>LINEを友だち追加する</h3>
+            <p>下のボタンから友だち追加するだけ。登録は30秒で完了します。</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true">💬</span>
+            <h3>「0円入居を知りたい」と送る</h3>
+            <p>その一言を送っていただければ、必要な情報をお届けします。</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true">🎁</span>
+            <h3>使える情報・案件を受け取る</h3>
+            <p>あなたの状況に合ったノウハウや、活用できる情報をお伝えします。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section faq">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">よくある質問</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>本当に無料ですか？</summary>
+            <div class="faq-answer">
+              <p>はい、完全無料の情報提供サービスです。LINEでの友だち追加・メッセージの送受信に費用は一切かかりません。</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>0円入居は本当に存在しますか？怪しくないですか？</summary>
+            <div class="faq-answer">
+              <p>敷金・礼金・仲介手数料が0円、または大幅に抑えられた案件は実際に存在します。ただし、物件・時期・条件によって異なり、すべての物件が0円になるわけではありません。すまいPLUSでは、そのような案件の探し方やノウハウを情報としてお伝えしています。</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>物件を紹介・斡旋してもらえますか？</summary>
+            <div class="faq-answer">
+              <p>いいえ。すまいPLUSは情報提供サービスであり、宅地建物取引業法に基づく仲介・斡旋は一切行っておりません。賃貸に関する知識やノウハウをお伝えするサービスです。</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>どのエリアでも使えますか？</summary>
+            <div class="faq-answer">
+              <p>主に首都圏を中心にお伝えしていますが、エリアによって案件の有無や条件は異なります。LINEでご希望のエリアをお知らせいただければ、該当する情報があるかお答えします。</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>しつこい営業はありますか？</summary>
+            <div class="faq-answer">
+              <p>ありません。情報提供のみのサービスですので、電話での営業や来店の勧誘などは一切行いません。必要な情報をお届けするだけのシンプルなサービスです。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Final CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <h2 class="section-title">引越し前に知っておきたい情報、あります</h2>
+        <p class="section-lead">友だち追加して「知りたい」と送るだけでOK</p>
+        <a href="https://line.me/ti/p/@012bbuuk" class="btn-line btn-line-lg" target="_blank" rel="noopener noreferrer">
+          LINEで教えてもらう（無料）
+        </a>
+        <div class="final-trust">
+          <span>✅ 完全無料</span>
+          <span>✅ 仲介なし・情報提供のみ</span>
+          <span>✅ 営業なし</span>
+          <span>✅ 来店不要</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="logo">
+        <span class="logo-sumai">すまい</span><span class="logo-plus">PLUS</span>
+      </div>
+      <p class="footer-legal">
+        当サービスは不動産情報の提供を目的としており、宅地建物取引業法に基づく仲介・斡旋は行っておりません。
+      </p>
+      <p class="footer-copy">&copy; 2026 すまいPLUS All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating LINE button -->
+  <a href="https://line.me/ti/p/@012bbuuk" class="float-line" target="_blank" rel="noopener noreferrer" aria-label="LINEで無料相談">
+    <span class="float-line-icon" aria-hidden="true">📩</span>
+    <span class="float-line-text">LINE相談</span>
+  </a>
+
+</body>
+</html>

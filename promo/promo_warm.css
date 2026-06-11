@@ -634,3 +634,51 @@ body {
     padding: 1em;
   }
 }
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .promo-stage {
+    padding: 0;
+    align-items: flex-start;
+    min-height: 100svh;
+    background: #1a0e08;
+  }
+
+  .promo-viewport {
+    width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .promo-viewport:not(:hover) .promo-ui {
+    opacity: 1;
+  }
+
+  .promo-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
+  .promo-hint {
+    display: none;
+  }
+
+  .worry-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+  }
+
+  .gallery-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .flow-row {
+    flex-wrap: wrap;
+  }
+
+  .flow-cell {
+    max-width: none;
+    width: 100%;
+  }
+}

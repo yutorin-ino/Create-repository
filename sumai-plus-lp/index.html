@@ -484,6 +484,29 @@
       section { padding: 5rem 2rem; }
       header { padding: 0.9rem 2rem; }
     }
+
+    /* ===== スマホ最適化 ===== */
+    .cost-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    @media (max-width: 480px) {
+      section { padding: 2.5rem 1rem; }
+      #hero { padding: 3rem 1rem 2.5rem; }
+      .hero-copy { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+      .hero-zero { font-size: clamp(3.5rem, 18vw, 6rem); }
+      .hero-sub br { display: none; }
+      .cost-table { font-size: 0.82rem; }
+      .cost-table thead th,
+      .cost-table tbody td { padding: 0.65em 0.75em; }
+      .btn-line-lg { font-size: 1rem; padding: 0.9em 1.5em; }
+      .float-btn { bottom: 1rem; right: 1rem; padding: 0.75em 1.1em; font-size: 0.85rem; }
+      .hint-lock { padding: 1.5rem 1.2rem; }
+      footer { padding: 2rem 1rem; }
+    }
+
+    @media (max-width: 360px) {
+      .header-cta { font-size: 0.78rem; padding: 0.45em 0.8em; }
+      .section-title { font-size: clamp(1.25rem, 5vw, 1.6rem); }
+    }
   </style>
 </head>
 <body>
@@ -558,6 +581,7 @@
     <h2 class="section-title">賃貸の初期費用、<br>実はこんなに高い</h2>
     <p class="section-lead">家賃7万円の物件を借りる場合の一般的な初期費用の目安です</p>
 
+    <div class="cost-table-scroll">
     <table class="cost-table">
       <thead>
         <tr>
@@ -575,6 +599,7 @@
         <tr class="total-row"><td><strong>合計</strong></td><td><strong>約34万円</strong></td></tr>
       </tbody>
     </table>
+    </div>
 
     <div class="cost-arrow">⬇️ これが…条件次第で</div>
 

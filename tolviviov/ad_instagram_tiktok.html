@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram / TikTok 広告 — tolviviov 9:16</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=DM+Sans:wght@700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #111;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 100vh;
+  font-family: 'Noto Sans JP', sans-serif;
+  gap: 16px;
+}
+.label { color: #666; font-size: 12px; letter-spacing: 0.1em; }
+.stage {
+  width: 390px;
+  height: 693px; /* 9:16 */
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #0A0F1E;
+  box-shadow: 0 0 60px rgba(0,0,0,0.8);
+  cursor: pointer;
+}
+
+/* ── SCENES ── */
+.scene {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 28px;
+  opacity: 0;
+  pointer-events: none;
+  transition: none;
+}
+.scene.active { opacity: 1; pointer-events: all; }
+
+/* BG layers */
+.bg-glow {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 90% 60% at 50% 20%, rgba(255,92,43,0.25) 0%, transparent 65%);
+}
+.bg-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.04;
+  background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.scene-content { position: relative; z-index: 1; width: 100%; text-align: center; }
+
+/* SCENE 1 — 問題提起 */
+.s1-question {
+  font-size: 13px; color: #FF8C60;
+  letter-spacing: 0.06em; margin-bottom: 20px;
+  opacity: 0;
+  animation: none;
+}
+.s1-big {
+  font-size: 52px; line-height: 1.1; font-weight: 900;
+  color: #fff; letter-spacing: -0.03em; margin-bottom: 16px;
+  opacity: 0;
+}
+.s1-big span { color: #FF5C2B; }
+.s1-sub {
+  font-size: 15px; color: #7A8BA0; line-height: 1.7;
+  opacity: 0;
+}
+
+/* SCENE 2 — 数字インパクト */
+.s2-label {
+  font-size: 12px; letter-spacing: 0.14em; color: #FF8C60;
+  text-transform: uppercase; margin-bottom: 12px;
+  opacity: 0;
+}
+.s2-zero {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 120px; font-weight: 900;
+  color: #fff; line-height: 1; letter-spacing: -0.06em;
+  opacity: 0;
+}
+.s2-zero span { color: #FF5C2B; }
+.s2-desc {
+  font-size: 18px; font-weight: 700; color: #fff;
+  margin-top: 8px; opacity: 0;
+}
+.s2-note { font-size: 13px; color: #5A6478; margin-top: 8px; opacity: 0; }
+.s2-pills {
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  margin-top: 20px; opacity: 0;
+}
+.s2-pill {
+  font-size: 12px; color: #FF8C60;
+  background: rgba(255,92,43,0.12); border: 1px solid rgba(255,92,43,0.25);
+  padding: 5px 14px; border-radius: 20px;
+}
+
+/* SCENE 3 — 特長3連 */
+.s3-row {
+  display: flex; flex-direction: column; gap: 16px;
+  width: 100%; opacity: 0;
+}
+.s3-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex; align-items: center; gap: 16px;
+  text-align: left;
+  transform: translateX(40px);
+  opacity: 0;
+}
+.s3-icon { font-size: 28px; flex-shrink: 0; }
+.s3-item h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.s3-item p { font-size: 12px; color: #7A8BA0; line-height: 1.5; }
+
+/* SCENE 4 — CTA */
+.s4-eyebrow {
+  font-size: 11px; letter-spacing: 0.14em; color: #FF8C60;
+  text-transform: uppercase; margin-bottom: 16px; opacity: 0;
+}
+.s4-title {
+  font-size: 36px; font-weight: 900; line-height: 1.2;
+  color: #fff; letter-spacing: -0.02em; margin-bottom: 8px;
+  opacity: 0;
+}
+.s4-title span { color: #FF5C2B; }
+.s4-sub { font-size: 14px; color: #7A8BA0; margin-bottom: 28px; opacity: 0; }
+.s4-btn {
+  display: inline-block;
+  background: #FF5C2B; color: #fff;
+  font-size: 16px; font-weight: 900;
+  padding: 16px 40px; border-radius: 10px;
+  letter-spacing: 0.02em; opacity: 0;
+  transform: scale(0.9);
+}
+.s4-note { font-size: 12px; color: #3A4458; margin-top: 12px; opacity: 0; }
+
+/* PROGRESS BAR */
+.progress-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 10;
+  height: 3px; background: rgba(255,255,255,0.08);
+}
+.progress-fill {
+  height: 3px; background: #FF5C2B;
+  width: 0%; transition: width 0.1s linear;
+}
+
+/* REPLAY BTN */
+.replay-btn {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 20;
+  background: rgba(255,92,43,0.9); color: #fff;
+  border: none; border-radius: 50%;
+  width: 64px; height: 64px;
+  font-size: 24px; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+}
+.replay-btn.show { display: flex; }
+
+/* KEYFRAMES */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes btnPop {
+  0%   { opacity: 0; transform: scale(0.85); }
+  70%  { transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+<body>
+<span class="label">Instagram / TikTok — 縦型 9:16 / 15秒 ▶ クリックで再生</span>
+
+<div class="stage" id="stage">
+  <!-- SCENE 1: 問題提起 -->
+  <div class="scene" id="s1">
+    <div class="bg-glow"></div>
+    <div class="bg-grid"></div>
+    <div class="scene-content">
+      <div class="s1-question" id="s1q">⚠️ こんな不安、ありませんか？</div>
+      <div class="s1-big" id="s1b">鍵、<br><span>閉めた？</span></div>
+      <div class="s1-sub" id="s1s">外出先から確認できない<br>毎日の不安。</div>
+    </div>
+  </div>
+
+  <!-- SCENE 2: 数字 -->
+  <div class="scene" id="s2">
+    <div class="bg-glow"></div>
+    <div class="bg-grid"></div>
+    <div class="scene-content">
+      <div class="s2-label" id="s2l">月額費用</div>
+      <div class="s2-zero" id="s2z"><span>0</span>円</div>
+      <div class="s2-desc" id="s2d">それが、tolviviov。</div>
+      <div class="s2-note" id="s2n">月額不要・契約縛りなし</div>
+      <div class="s2-pills" id="s2p">
+        <span class="s2-pill">工事不要</span>
+        <span class="s2-pill">5分設置</span>
+        <span class="s2-pill">賃貸OK</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 3: 特長 -->
+  <div class="scene" id="s3">
+    <div class="bg-glow"></div>
+    <div class="bg-grid"></div>
+    <div class="scene-content">
+      <div class="s3-row" id="s3row">
+        <div class="s3-item" id="s3i1">
+          <span class="s3-icon">📱</span>
+          <div><h3>スマホにリアルタイム通知</h3><p>ドアが開いた瞬間、すぐわかる</p></div>
+        </div>
+        <div class="s3-item" id="s3i2">
+          <span class="s3-icon">🔔</span>
+          <div><h3>120dB 大音量サイレン</h3><p>侵入を強力に威嚇・抑止</p></div>
+        </div>
+        <div class="s3-item" id="s3i3">
+          <span class="s3-icon">📦</span>
+          <div><h3>8点セット・すぐ使える</h3><p>米Amazon 4,370件 ★4.2</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 4: CTA -->
+  <div class="scene" id="s4">
+    <div class="bg-glow"></div>
+    <div class="bg-grid"></div>
+    <div class="scene-content">
+      <div class="s4-eyebrow" id="s4e">🇯🇵 日本初上陸・先行販売中</div>
+      <div class="s4-title" id="s4t">Makuakeで<br><span>早割15%OFF</span><br>実施中。</div>
+      <div class="s4-sub" id="s4s">数量限定 — お早めに</div>
+      <div class="s4-btn" id="s4b">応援購入する →</div>
+      <div class="s4-note" id="s4n">tolviviov ホームセキュリティ</div>
+    </div>
+  </div>
+
+  <div class="progress-bar"><div class="progress-fill" id="pbar"></div></div>
+  <button class="replay-btn" id="replayBtn" onclick="startAnim()">↺</button>
+</div>
+
+<script>
+var TOTAL = 15000;
+var scenes = [
+  { id:'s1', dur:3500, anims:[
+    { el:'s1q', delay:200,  css:'animation: fadeUp 0.5s ease forwards' },
+    { el:'s1b', delay:700,  css:'animation: fadeUp 0.6s ease forwards' },
+    { el:'s1s', delay:1400, css:'animation: fadeUp 0.5s ease forwards' }
+  ]},
+  { id:'s2', dur:3500, anims:[
+    { el:'s2l', delay:100, css:'animation: fadeUp 0.4s ease forwards' },
+    { el:'s2z', delay:300, css:'animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards' },
+    { el:'s2d', delay:900, css:'animation: fadeUp 0.4s ease forwards' },
+    { el:'s2n', delay:1200, css:'animation: fadeUp 0.4s ease forwards' },
+    { el:'s2p', delay:1600, css:'animation: fadeUp 0.5s ease forwards' }
+  ]},
+  { id:'s3', dur:4000, anims:[
+    { el:'s3i1', delay:200,  css:'animation: slideIn 0.45s ease forwards' },
+    { el:'s3i2', delay:600,  css:'animation: slideIn 0.45s ease forwards' },
+    { el:'s3i3', delay:1000, css:'animation: slideIn 0.45s ease forwards' }
+  ]},
+  { id:'s4', dur:4000, anims:[
+    { el:'s4e', delay:100, css:'animation: fadeUp 0.4s ease forwards' },
+    { el:'s4t', delay:400, css:'animation: fadeUp 0.5s ease forwards' },
+    { el:'s4s', delay:900, css:'animation: fadeUp 0.4s ease forwards' },
+    { el:'s4b', delay:1200, css:'animation: btnPop 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards' },
+    { el:'s4n', delay:1800, css:'animation: fadeUp 0.4s ease forwards' }
+  ]}
+];
+
+var timers = [];
+var rafId = null;
+var startTime = null;
+
+function clearAll(){
+  timers.forEach(clearTimeout);
+  timers = [];
+  if(rafId) cancelAnimationFrame(rafId);
+  scenes.forEach(function(s){
+    var el = document.getElementById(s.id);
+    el.classList.remove('active');
+    s.anims.forEach(function(a){
+      var ae = document.getElementById(a.el);
+      if(ae){ ae.style.cssText = ''; ae.style.opacity = '0'; }
+    });
+  });
+  document.getElementById('pbar').style.width = '0%';
+  document.getElementById('replayBtn').classList.remove('show');
+}
+
+function startAnim(){
+  clearAll();
+  startTime = performance.now();
+
+  var offset = 0;
+  scenes.forEach(function(scene, si){
+    (function(s, o){
+      timers.push(setTimeout(function(){
+        // hide prev
+        if(si > 0){
+          var prev = document.getElementById(scenes[si-1].id);
+          prev.classList.remove('active');
+        }
+        var el = document.getElementById(s.id);
+        el.classList.add('active');
+        s.anims.forEach(function(a){
+          timers.push(setTimeout(function(){
+            var ae = document.getElementById(a.el);
+            if(ae) ae.style.cssText = a.css;
+          }, a.delay));
+        });
+      }, o));
+    })(scene, offset);
+    offset += scene.dur;
+  });
+
+  // Progress bar
+  function tick(){
+    var now = performance.now();
+    var elapsed = now - startTime;
+    var pct = Math.min(elapsed / TOTAL * 100, 100);
+    document.getElementById('pbar').style.width = pct + '%';
+    if(pct < 100){
+      rafId = requestAnimationFrame(tick);
+    } else {
+      document.getElementById('replayBtn').classList.add('show');
+    }
+  }
+  rafId = requestAnimationFrame(tick);
+}
+
+document.getElementById('stage').addEventListener('click', function(e){
+  if(e.target.id === 'replayBtn') return;
+  if(document.getElementById('replayBtn').classList.contains('show')) return;
+  startAnim();
+});
+
+window.addEventListener('load', function(){ setTimeout(startAnim, 600); });
+</script>
+</body>
+</html>

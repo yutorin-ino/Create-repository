@@ -1,10 +1,10 @@
 :root {
   --white: #ffffff;
   --bg: #fdf6f0;
-  --text: #2d1a0e;
-  --text-muted: #7a5a44;
-  --primary: #c05e1a;
-  --primary-dark: #9e4a10;
+  --text: #140c04;
+  --text-muted: #3d2410;
+  --primary: #e05e10;
+  --primary-dark: #b84a08;
   --primary-light: #fdeedd;
   --line: #06c755;
   --font: "Noto Sans JP", system-ui, sans-serif;
@@ -102,16 +102,16 @@ body {
 
 .slide-overlay--dark {
   background:
-    linear-gradient(105deg, rgba(80, 30, 5, 0.88) 0%, rgba(80, 30, 5, 0.6) 50%, rgba(80, 30, 5, 0.35) 100%),
-    linear-gradient(to top, rgba(40, 15, 5, 0.5) 0%, transparent 55%);
+    linear-gradient(105deg, rgba(60, 20, 2, 0.90) 0%, rgba(60, 20, 2, 0.65) 50%, rgba(40, 12, 2, 0.40) 100%),
+    linear-gradient(to top, rgba(20, 8, 2, 0.6) 0%, transparent 55%);
 }
 
 .slide-overlay--light {
-  background: rgba(255, 252, 248, 0.94);
+  background: rgba(255, 250, 244, 0.96);
 }
 
 .slide-overlay--primary {
-  background: linear-gradient(135deg, rgba(192, 94, 26, 0.92) 0%, rgba(158, 74, 16, 0.88) 100%);
+  background: linear-gradient(135deg, rgba(210, 80, 10, 0.94) 0%, rgba(170, 58, 6, 0.92) 100%);
 }
 
 .slide-content {
@@ -125,22 +125,27 @@ body {
   display: inline-block;
   font-size: clamp(0.65rem, 1.4vw, 0.85rem);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--primary);
   margin-bottom: 0.6em;
+  background: rgba(224, 94, 16, 0.1);
+  padding: 0.25em 0.75em;
+  border-radius: 999px;
 }
 
 .slide-overlay--dark .slide-label,
 .slide-overlay--primary .slide-label {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffc880;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .slide-title {
   font-size: clamp(1.5rem, 3.8vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--text);
 }
 
 .slide-title--accent {
@@ -150,23 +155,27 @@ body {
 .slide-overlay--dark .slide-title,
 .slide-overlay--primary .slide-title {
   color: var(--white);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
 }
 
 .slide-overlay--dark .slide-title--accent,
 .slide-overlay--primary .slide-title--accent {
-  color: #ffd4a8;
+  color: #ffc880;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .slide-lead {
   margin-top: 0.8em;
-  font-size: clamp(0.85rem, 1.8vw, 1.15rem);
-  line-height: 1.75;
+  font-size: clamp(0.88rem, 1.85vw, 1.18rem);
+  line-height: 1.8;
   color: var(--text-muted);
+  font-weight: 500;
 }
 
 .slide-overlay--dark .slide-lead,
 .slide-overlay--primary .slide-lead {
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* テキストアニメーション */
@@ -288,10 +297,13 @@ body {
   padding: 0.8em;
   background: var(--white);
   border: 1px solid #f0d9c8;
+  border-left: 3px solid var(--primary);
   border-radius: 8px;
   font-size: clamp(0.62rem, 1.2vw, 0.82rem);
-  line-height: 1.55;
-  box-shadow: 0 2px 12px rgba(80, 30, 5, 0.06);
+  line-height: 1.6;
+  color: var(--text);
+  font-weight: 500;
+  box-shadow: 0 2px 12px rgba(80, 30, 5, 0.08);
 }
 
 .worry-cell .icon {
@@ -335,14 +347,15 @@ body {
 
 .reason-cell h3 {
   font-size: clamp(0.75rem, 1.4vw, 0.95rem);
-  font-weight: 700;
+  font-weight: 900;
   margin: 0.3em 0 0.4em;
+  color: var(--text);
 }
 
 .reason-cell p {
   font-size: clamp(0.62rem, 1.1vw, 0.78rem);
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* フロー */

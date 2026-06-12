@@ -1,0 +1,220 @@
+/* ========================================
+   スマホ横向き専用オーバーライド
+   promo_warm_white.css に重ねて使用
+   ======================================== */
+
+/* 基本：ステージを画面全体に */
+.promo-stage {
+  padding: 0;
+  min-height: 100svh;
+  background: #1a0e08;
+}
+
+.promo-viewport {
+  width: min(100vw, calc(100svh * 16 / 9));
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* コントロール常時表示 */
+.promo-viewport:not(:hover) .promo-ui {
+  opacity: 1;
+}
+
+/* ヒントテキスト非表示 */
+.promo-hint {
+  display: none;
+}
+
+/* ボタンをタッチしやすく */
+.promo-btn {
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+}
+
+/* スライド余白を縮小 */
+.slide {
+  padding: 3% 5%;
+}
+
+/* タイトルを横向き小画面向けに */
+.slide-title {
+  font-size: clamp(1.1rem, 3.2vw, 2.2rem);
+  line-height: 1.3;
+}
+
+.slide-lead {
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  margin-top: 0.5em;
+  line-height: 1.65;
+}
+
+.slide-label {
+  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+  margin-bottom: 0.4em;
+}
+
+/* ロゴ */
+.brand-logo {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+}
+
+.brand-tagline {
+  font-size: clamp(0.8rem, 1.6vw, 1.1rem);
+  margin-top: 0.6em;
+}
+
+/* バッジ */
+.badge-row {
+  margin-top: 0.8em;
+  gap: 0.4em;
+}
+
+.badge-row li {
+  font-size: clamp(0.65rem, 1.2vw, 0.85rem);
+  padding: 0.35em 0.8em;
+}
+
+/* ギャラリー：4列維持（横向きなら十分な幅がある） */
+.gallery-row {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em;
+  margin-top: 0.8em;
+}
+
+/* お悩みグリッド：3列 */
+.worry-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em;
+  margin-top: 0.8em;
+}
+
+.worry-cell {
+  padding: 0.6em;
+  font-size: clamp(0.58rem, 1.1vw, 0.76rem);
+  line-height: 1.5;
+}
+
+/* 理由カード：3列 */
+.reason-row {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7em;
+  margin-top: 0.8em;
+}
+
+.reason-cell-body {
+  padding: 0.6em 0.8em 0.8em;
+}
+
+.reason-cell h3 {
+  font-size: clamp(0.68rem, 1.2vw, 0.88rem);
+  margin: 0.2em 0 0.3em;
+}
+
+.reason-cell p {
+  font-size: clamp(0.58rem, 1vw, 0.72rem);
+}
+
+/* フロー：1行に収める */
+.flow-row {
+  flex-wrap: nowrap;
+  gap: 0.4em;
+  margin-top: 0.8em;
+}
+
+.flow-cell {
+  max-width: none;
+  padding: 0.65em 0.5em;
+}
+
+.flow-cell h3 {
+  font-size: clamp(0.62rem, 1.1vw, 0.78rem);
+}
+
+.flow-cell p {
+  font-size: clamp(0.54rem, 0.9vw, 0.68rem);
+}
+
+.flow-step-badge {
+  font-size: clamp(0.5rem, 0.9vw, 0.62rem);
+  padding: 0.2em 0.5em;
+}
+
+/* お客様の声：横並び維持 */
+.voice-box {
+  margin-top: 0.6em;
+}
+
+.voice-box img {
+  width: 38%;
+}
+
+.voice-quote {
+  font-size: clamp(0.65rem, 1.3vw, 0.88rem);
+  line-height: 1.65;
+}
+
+/* CTAパネル */
+.cta-panel {
+  padding: 1.2em 2em;
+  gap: 0.7em;
+}
+
+.cta-tel {
+  font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+}
+
+.btn-line {
+  padding: 0.7em 1.6em;
+  font-size: clamp(0.8rem, 1.4vw, 0.98rem);
+}
+
+/* エンドカード */
+.end-info {
+  font-size: clamp(0.68rem, 1.3vw, 0.88rem);
+  line-height: 1.7;
+  margin-top: 0.8em;
+}
+
+/* 縦向きの場合は通常表示に戻す（念のため） */
+@media (orientation: portrait) {
+  .promo-stage {
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .promo-viewport {
+    width: 100vw;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .gallery-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .worry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reason-row {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-row {
+    flex-wrap: wrap;
+  }
+
+  .flow-cell {
+    flex: 1 1 45%;
+  }
+
+  .voice-box {
+    flex-direction: column;
+  }
+
+  .voice-box img {
+    width: 100%;
+  }
+}

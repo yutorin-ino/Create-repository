@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>すまいPLUS｜スマホ横向き版</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="promo_warm_white.css">
+  <link rel="stylesheet" href="promo_sp_landscape.css">
+  <style>
+    /* ページ全体を黒背景に（ステージ外の余白を消す） */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #1a0e08;
+      overflow: hidden;
+    }
+
+    /* 横向き誘導オーバーレイ（縦向き時に表示） */
+    #rotate-notice {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #1a0e08;
+      z-index: 9999;
+      color: #fff;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      text-align: center;
+    }
+    #rotate-notice .rotate-icon {
+      font-size: 3.5rem;
+      animation: rotate-hint 1.5s ease-in-out infinite alternate;
+    }
+    #rotate-notice p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+    }
+    @keyframes rotate-hint {
+      from { transform: rotate(-20deg); }
+      to   { transform: rotate(20deg); }
+    }
+    @media (orientation: portrait) {
+      #rotate-notice { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 縦向き時の回転案内 -->
+  <div id="rotate-notice">
+    <span class="rotate-icon">📱</span>
+    <p>スマホを横向きにして<br>ご覧ください</p>
+  </div>
+
+  <div class="promo-stage">
+    <div class="promo-viewport">
+      <div class="slides">
+
+        <!-- 1. オープニング -->
+        <section class="slide is-active" data-duration="4">
+          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=85&auto=format&fit=crop');"></div>
+          <div class="slide-overlay slide-overlay--primary"></div>
+          <div class="slide-content">
+            <div class="brand-logo anim">
+              <span class="brand-logo-mark">+</span>
+              すまいPLUS
+            </div>
+            <p class="brand-tagline anim">リフォーム専門店｜相談・見積り無料</p>
+          </div>
+        </section>
+
+        <!-- 2. キャッチコピー / 人物: 古いキッチンで困る女性 -->
+        <section class="slide" data-duration="6">
+          <div class="slide-bg" style="background-image: url('./images/person_1.png');"></div>
+          <div class="slide-overlay slide-overlay--dark"></div>
+          <div class="slide-content">
+            <p class="slide-label anim">Reform</p>
+            <h2 class="slide-title anim">
+              その住まいの悩み、<br>
+              <span class="slide-title--accent">そのままにしていませんか？</span>
+            </h2>
+            <p class="slide-lead anim">
+              キッチン・浴室・外壁まで。<br>
+              すまいPLUSが、あなたの「もっと快適に」を叶えます。
+            </p>
+            <ul class="badge-row anim">
+              <li>見積り・現地調査 無料</li>
+              <li>地域密着の安心対応</li>
+              <li>最短即日ご連絡</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 3. 施工ギャラリー -->
+        <section class="slide" data-duration="6">
+          <div class="slide-overlay slide-overlay--light"></div>
+          <div class="slide-content">
+            <p class="slide-label anim">Gallery</p>
+            <h2 class="slide-title anim">リフォームで、暮らしが変わる</h2>
+            <p class="slide-lead anim">すまいPLUSの施工で生まれた、理想の住まいの一例です。</p>
+            <div class="gallery-row anim">
+              <figure class="gallery-cell">
+                <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=600&q=80&auto=format&fit=crop" alt="キッチンリフォーム" width="600" height="450">
+                <span>キッチン</span>
+              </figure>
+              <figure class="gallery-cell">
+                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80&auto=format&fit=crop" alt="浴室リフォーム" width="600" height="450">
+                <span>浴室・洗面</span>
+              </figure>
+              <figure class="gallery-cell">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80&auto=format&fit=crop" alt="リビング" width="600" height="450">
+                <span>リビング</span>
+              </figure>
+              <figure class="gallery-cell">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80&auto=format&fit=crop" alt="外壁リフォーム" width="600" height="450">
+                <span>外壁・外構</span>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. お悩み共感 / 人物: 水漏れを調べる男性 -->
+        <section class="slide" data-duration="7">
+          <div class="slide-bg" style="background-image: url('./images/person_7.png');"></div>
+          <div class="slide-overlay slide-overlay--light"></div>
+          <div class="slide-content">
+            <p class="slide-label anim">Worries</p>
+            <h2 class="slide-title anim">こんなお悩み、ありませんか？</h2>
+            <div class="worry-grid anim">
+              <div class="worry-cell"><span class="icon">🏠</span><p>築年数が経ち、水回りの不具合や古さが気になる</p></div>
+              <div class="worry-cell"><span class="icon">💧</span><p>浴室やキッチンの使い勝手が悪く、毎日がストレス</p></div>
+              <div class="worry-cell"><span class="icon">❄️</span><p>冬は寒く夏は暑い。断熱や窓の性能を見直したい</p></div>
+              <div class="worry-cell"><span class="icon">💰</span><p>費用や工期が不安で、リフォームに踏み出せない</p></div>
+              <div class="worry-cell"><span class="icon">🔍</span><p>どの業者に頼めばいいかわからない</p></div>
+              <div class="worry-cell"><span class="icon">👨‍👩‍👧</span><p>子育てや介護に合わせたバリアフリー化を検討したい</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. 選ばれる3つの理由 -->
+        <section class="slide" data-duration="8">
+          <div class="slide-overlay slide-overlay--light"></div>
+          <div class="slide-content">
+            <p class="slide-label anim">Reasons</p>
+            <h2 class="slide-title anim">すまいPLUSが選ばれる3つの理由</h2>
+            <div class="reason-row anim">
+              <article class="reason-cell">
+                <img src="./images/person_5.png" alt="丁寧な施工" width="600" height="375">
+                <div class="reason-cell-body">
+                  <span class="reason-num">01</span>
+                  <h3>地域密着の安心サポート</h3>
+                  <p>地元で培った信頼と実績。施工後のアフターフォローまで責任を持って対応します。</p>
+                </div>
+              </article>
+              <article class="reason-cell">
+                <img src="./images/person_9.png" alt="わかりやすいお見積り" width="600" height="375">
+                <div class="reason-cell-body">
+                  <span class="reason-num">02</span>
+                  <h3>わかりやすいお見積り</h3>
+                  <p>項目ごとに内訳を明示。ご予算に合わせたプラン提案で、無理のないリフォームを実現します。</p>
+                </div>
+              </article>
+              <article class="reason-cell">
+                <img src="./images/person_4.png" alt="スピーディな対応" width="600" height="375">
+                <div class="reason-cell-body">
+                  <span class="reason-num">03</span>
+                  <h3>スピーディな対応</h3>
+                  <p>お問い合わせは最短即日ご連絡。現地調査から施工完了まで、スケジュールを明確にお伝えします。</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. ご利用の流れ -->
+        <section class="slide" data-duration="8">
+          <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1600&q=80&auto=format&fit=crop');"></div>
+          <div class="slide-overlay slide-overlay--light"></div>
+          <div class="slide-content">
+            <p class="slide-label anim">Flow</p>
+            <h2 class="slide-title anim">ご利用の流れ</h2>
+            <p class="slide-lead anim">お問い合わせから施工完了まで、5つのステップで進みます。</p>
+            <div class="flow-row anim">
+              <div class="flow-cell">
+                <span class="flow-step-badge">STEP 1</span>
+                <h3>お問い合わせ</h3>
+                <p>LINEまたはフォームからお気軽にご連絡ください。</p>
+              </div>
+              <div class="flow-cell">
+                <span class="flow-step-badge">STEP 2</span>
+                <h3>現地調査</h3>
+                <p>ご自宅へお伺いし、ご要望を詳しくお聞きします。</p>
+              </div>
+              <div class="flow-cell">
+                <span class="flow-step-badge">STEP 3</span>
+                <h3>お見積り</h3>
+                <p>最適なプランとお見積りをご提示します。</p>
+              </div>
+              <div class="flow-cell">
+                <span class="flow-step-badge">STEP 4</span>
+                <h3>ご契約・施工</h3>
+                <p>経験豊富な職人が丁寧に施工いたします。</p>
+              </div>
+              <div class="flow-cell">
+                <span class="flow-step-badge">STEP 5</span>
+                <h3>お引き渡し</h3>
+                <p>完了検査後にお引き渡し。アフターサポート付きです。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. お客様の声 -->
+        <section class="slide" data-duration="7">
+          <div class="slide-overlay slide-overlay--light"></div>
+          <div class="slide-content">
+            <p class="slide-label anim">Voice</p>
+            <h2 class="slide-title anim">お客様の声</h2>
+            <div class="voice-box anim">
+              <img src="./images/person_3.png" alt="お客様の声" width="600" height="340">
+              <div class="voice-box-body">
+                <div class="voice-meta">
+                  <span class="area">東京都 ○○区</span>
+                  <span class="type">キッチンリフォーム</span>
+                </div>
+                <p class="voice-quote">「古いキッチンが使いづらく困っていましたが、動線も収納も改善され、毎日の料理が楽しくなりました。見積りの説明も丁寧で安心してお任せできました。」</p>
+                <p class="voice-name">50代・女性</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. CTA / 人物: 歓迎ジェスチャーのスタッフ -->
+        <section class="slide" data-duration="6">
+          <div class="slide-bg" style="background-image: url('./images/person_2.png');"></div>
+          <div class="slide-overlay slide-overlay--dark"></div>
+          <div class="slide-content">
+            <div class="cta-panel anim">
+              <p class="slide-label">Contact</p>
+              <h2 class="slide-title">まずは無料相談から</h2>
+              <p class="slide-lead">住まいのお悩み、お聞かせください。<br>専門スタッフが丁寧にご対応いたします。</p>
+              <span class="btn-line">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                LINEで無料相談する
+              </span>
+              <p class="cta-tel">TEL 0120-XXX-XXX</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. エンドカード -->
+        <section class="slide" data-duration="5">
+          <div class="slide-overlay slide-overlay--primary"></div>
+          <div class="slide-content end-card">
+            <div class="brand-logo anim">
+              <span class="brand-logo-mark">+</span>
+              すまいPLUS
+            </div>
+            <p class="end-info anim">
+              リフォーム専門店 すまいPLUS<br>
+              営業時間 9:00〜18:00（日祝休み）<br>
+              東京都・神奈川県・埼玉県・千葉県を中心に対応
+            </p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- コントロール UI -->
+      <div class="promo-ui">
+        <button type="button" class="promo-btn" id="playBtn" aria-label="一時停止">⏸</button>
+        <button type="button" class="promo-btn" id="restartBtn" aria-label="最初から">↺</button>
+        <button type="button" class="promo-btn" id="fullscreenBtn" aria-label="全画面">⛶</button>
+        <button type="button" class="promo-btn" id="recordBtn" aria-label="画面録画">⏺</button>
+        <div class="promo-progress" aria-hidden="true">
+          <div class="promo-progress-bar" id="progressBar"></div>
+        </div>
+        <span class="promo-time" id="timeDisplay">0:00 / 0:00</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="promo.js"></script>
+</body>
+</html>
